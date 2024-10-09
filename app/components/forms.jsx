@@ -41,7 +41,7 @@ const Forms = () => {
       </div>
 
       {/* SwitchSelector */}
-      <div className='w-2/3 md:w-72 h-10 mb-8'>
+      <div className='w-2/3 md:w-72 min-h-10 mb-6'>
         <SwitchSelector
           onChange={onChange}
           options={options}
@@ -53,7 +53,7 @@ const Forms = () => {
 
       {/* Form container */}
       <div className="flex flex-col justify-center flex-grow items-center w-full">
-        <div className="w-full md:w-4/5 overflow-hidden h-full flex  justify-center">
+        <div className="w-full md:w-5/6 overflow-hidden h-full flex  justify-center">
           {isLogin ? <Login loginfailed /> : <Register />}
         </div>
       </div>

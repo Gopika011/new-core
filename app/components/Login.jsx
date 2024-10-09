@@ -32,13 +32,13 @@ const Login = () => {
   };
 
   return (
-    <div className='flex flex-col gap-7 items-center text-white w-3/4'> 
-      <div className='flex flex-col gap-5 text-[#FFFFFFE5] w-full lg:w-1/2 items-center'>
+    <div className='flex flex-col gap-7 items-center text-white w-3/4 h-1/2 justify-end'> 
+      <div className='flex flex-col gap-5 text-[#FFFFFFE5] w-full lg:w-2/3 items-center '>
         <div className='flex flex-col w-full'>
           <label className='text-sm pl-4 py-1'>Ticket Number</label>
           <input 
             type="text" 
-            className="input h-10 input-bordered border-2 px-4 border-[#E3E3E3] bg-[#57595d] placeholder:text-gray-300 rounded-full w-full" 
+            className="input h-10 input-bordered border-2 px-4 border-[#E3E3E3] bg-[#57595d] placeholder:text-gray-300 rounded-full w-full focus:outline-none" 
             value={ticketNumber}
             onChange={(e) => setTicketNumber(e.target.value)}
             placeholder="Enter ticket number"

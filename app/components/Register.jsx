@@ -232,7 +232,7 @@ const Register = () => {
 };
 
 const PartOneForm = ({ formData, handleChange, handleSubmit }) => (
-  <form onSubmit={handleSubmit} className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
+  <form onSubmit={handleSubmit} className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
     <div className="text-2xl font-semibold text-[#FFFFFFD9] col-span-2 -mb-2">Student Details</div>
     <label className='block md:col-span-1 col-span-2'>
     <span class="after:content-['*'] after:ml-0.5 after:text-red-700 block text-sm pl-4 py-1">
@@ -286,7 +286,7 @@ const PartOneForm = ({ formData, handleChange, handleSubmit }) => (
         onChange={handleChange}
         value={formData.phoneNumber}
         required
-        className="pl-3 w-full md:col-span-1 col-span-2 input h-9 input-bordered border-2 border-[#E3E3E3] bg-[#57595d] rounded-full focus:outline-none  required"
+        className="pl-3 w-full md:col-span-1 col-span-2 input h-9 input-bordered border-2 border-[#E3E3E3] bg-[#57595d] rounded-full focus:outline-none required"
       />
     </label>
 
@@ -299,7 +299,7 @@ const PartOneForm = ({ formData, handleChange, handleSubmit }) => (
         name="veg"
         onChange={handleChange}
         value={formData.veg}
-        className="px-3 w-full input h-9 input-bordered border-2 border-[#E3E3E3] bg-[#57595d] rounded-lg focus:outline-none  required"
+        className="px-3 w-full input h-9 input-bordered border-2 border-[#E3E3E3] bg-[#57595d] rounded-lg focus:outline-none required"
       >
         <option value="Veg">Veg</option>
         <option value="Non-Veg">Non-Veg</option>
@@ -335,29 +335,27 @@ const PartOneForm = ({ formData, handleChange, handleSubmit }) => (
       </div>
     </div>
 
-    {formData.ieeeMember && (
-      <>
+    <div className={`grid grid-cols-2 gap-x-8 gap-y-2 col-span-2 ${formData.ieeeMember ? "visible opacity-100" : "invisible opacity-0"} transition-opacity`}>
+      <input
+        type="text"
+        name="ieeeMembershipId"
+        placeholder="IEEE Membership ID"
+        onChange={handleChange}
+        value={formData.ieeeMembershipId}
+        required
+        className="pl-3 mt-2 md:col-span-1 col-span-2 input h-9 input-bordered border-2 border-[#E3E3E3] bg-[#57595d] placeholder:text-gray-300 rounded-full focus:outline-none required"
+      />
+      <div className="md:col-span-1 col-span-2 flex items-center ml-[22px] ml mt-2">
         <input
-          type="text"
-          name="ieeeMembershipId"
-          placeholder="IEEE Membership ID"
+          type="checkbox"
+          name="rasMember"
           onChange={handleChange}
-          value={formData.ieeeMembershipId}
-          required
-          className="pl-3 mt-2 w-full md:col-span-1 col-span-2 input h-9 input-bordered border-2 border-[#E3E3E3] bg-[#57595d] placeholder:text-gray-300 rounded-full focus:outline-none required"
+          checked={formData.rasMember}
+          className="h-5 w-5 mr-3"
         />
-        <div className="col-span-1 flex items-center ml-5 mt-2">
-          <input
-            type="checkbox"
-            name="rasMember"
-            onChange={handleChange}
-            checked={formData.rasMember}
-            className="h-5 w-5 mr-3"
-          />
-          <label>RAS Member?</label>
-        </div>
-      </>
-    )}
+        <label>RAS Member?</label>
+      </div>
+    </div>
 
     <div className="text-2xl font-semibold text-[#FFFFFFD9] col-span-2 mt-4 -mb-2">College Details</div>
     <label className="block md:col-span-1 col-span-2">
